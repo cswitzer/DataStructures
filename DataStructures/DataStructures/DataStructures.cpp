@@ -124,18 +124,85 @@ void PointerPractice()
     // free(p5);
 }
 
+void ReferencePractice()
+{
+    // A reference is nothing more than giving another name to a variable
+    // NOTE: references do not take up memory. This is why passing something in as
+    // a reference saves memory, because passing in an object by reference
+    // is the very act of passing in that object (even if it has a different name)
+    // I am giving a another name: r
+    int a = 10;
+    int& r = a;
+
+    // r does not become b!!! This means that a becomes 25, because r IS a
+    int b = 25;
+    r = b;
+
+    // r is 30 to, because r is a
+    a = 30;
+
+    cout << a << endl;
+    cout << r << endl;
+}
+
+void PointersToStructs()
+{
+    Rectangle r = { 10, 5 };
+    Rectangle* p = &r;
+
+    //p.length =20 will not work because p is a pointer; it has no variables!
+    // (*p).length = 20 is hard to understand
+
+    // Create struct pointer on the heap using C
+    // Rectangle* p1 = (Rectangle*)malloc(sizeof(Rectangle));
+
+    // create struct pointer in C++
+    Rectangle* p1 = new Rectangle;
+    p1->length = 10;
+    p1->width = 20;
+
+    cout << p1->length << endl;
+    cout << p1->width << endl;
+}
+
+int add(int a, int b)
+{
+    int c = a + b;
+    return c;
+}
+
+int incrementByTen(int a)
+{
+    // Hint, this function will not change the actual value of a
+    return a += 10;
+}
+
+int incrementByTenReference(int& a)
+{
+    // this function will work!
+    return a += 10;
+}
+
 /*
 This is my main function
 */
 int main()
 {
-    // A reference is nothing more than giving another name to a variable
-    // I am giving a another name: r
-    int a = 10;
-    int &r = a;
+    int num1 = 10, num2 = 42;
+    int sum = add(num1, num2);
+    cout << sum << endl;
 
-    cout << a << endl;
-    cout << r << endl;
+    int incrementedNum1 = incrementByTen(num1);
+    cout << incrementedNum1 << endl;
+    // num1 has to be 20, right???!
+    cout << num1 << endl;
+    // wrong... a does not change because we incremented a COPY of a by 10
+
+    // this does work, because incrementByTenReference's argument references a! This
+    // means that IT IS a
+    int incrementedNum1Reference = incrementByTenReference(num1);
+    cout << incrementedNum1Reference << endl;
+    cout << num1 << endl;
 
     return 0;
 }
