@@ -183,10 +183,7 @@ int incrementByTenReference(int& a)
     return a += 10;
 }
 
-/*
-This is my main function
-*/
-int main()
+void ValueVsReference()
 {
     int num1 = 10, num2 = 42;
     int sum = add(num1, num2);
@@ -203,6 +200,80 @@ int main()
     int incrementedNum1Reference = incrementByTenReference(num1);
     cout << incrementedNum1Reference << endl;
     cout << num1 << endl;
+}
 
+/// <summary>
+/// Syntax in a parameter such as int *a means that we are passing in an address
+/// to a variable. Syntax like int A[] means we are passing in a reference to an
+/// array. If we are passing in a reference to an array, the only variable that can
+/// store an address is a pointer, so "int A[]" IS a pointer to an array. You can also
+/// write "int *A". However, if you specically want an array and not a general value,
+/// we need to use "int A[]"
+/// </summary>
+void ArrFun(/* or "int *a" */int A[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << A[i] << endl;
+    }
+}
+
+// this function returns a pointer (memory address variable) and stores it into
+// another pointer (another memory address variable)
+int * AnotherArrFun(int n)
+{
+    // This means that pointer B will get direct access to this function
+    int *P = new int[n];
+    for (int i = 0; i < n; i++)
+    {
+        P[i] = i + 1;
+    }
+    return P;
+}
+
+void ArrayPassingAndFunctionPointer()
+{
+    // passing an array as a parameter
+    int A[5] = { 2,4,6,8,10 };
+    // Arrays can never be passed by value, only by address
+    ArrFun(A, 5);
+
+    cout << endl;
+
+    // function pointer
+    int* B, size = 5;
+    // Now B is accessing the array in the heap. P is already gone
+    B = AnotherArrFun(size);
+    for (int i = 0; i < size; i++)
+    {
+        cout << B[i] << endl;
+    }
+}
+
+// call by address
+int Area(Rectangle &r1)
+{
+    return r1.length * r1.width;
+}
+
+// this is the "call by address" in C code
+void ChangeLength(Rectangle *r1)
+{
+    r1->length += 10;
+    r1->width += 20;
+}
+
+/*
+This is my main function
+*/
+int main()
+{
+    Rectangle  r = { 10,5 };
+    int totalArea = Area(r);
+    cout << totalArea << endl;
+
+    ChangeLength(&r);
+    cout << r.length << endl;
+    cout << r.width << endl;
     return 0;
 }

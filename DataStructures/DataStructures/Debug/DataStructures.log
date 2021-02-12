@@ -1,2 +1,3 @@
 ﻿  DataStructures.cpp
+C:\Users\Chase\source\repos\DataStructures\DataStructures\DataStructures\DataStructures.cpp(256,22): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
   DataStructures.vcxproj -> C:\Users\Chase\source\repos\DataStructures\DataStructures\Debug\DataStructures.exe
