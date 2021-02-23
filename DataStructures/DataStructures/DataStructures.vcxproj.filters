@@ -21,5 +21,13 @@
     <ClCompile Include="Practice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OOPPractice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OOPPractice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

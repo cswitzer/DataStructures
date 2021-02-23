@@ -5,14 +5,15 @@
 #include <math.h>
 #include <iostream>
 #include <array>
-#include <string>
 #include <stdlib.h>
+#include <memory>
+#include "OOPPractice.h"
 
 using namespace std;
 
-
 int main()
 {
-    
+    cout << "Hello World";
+
     return 0;
 }

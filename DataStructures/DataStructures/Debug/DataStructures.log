@@ -1,5 +1,4 @@
 ﻿  DataStructures.cpp
-  Practice.cpp
-C:\Users\Chase\source\repos\DataStructures\DataStructures\DataStructures\Practice.cpp(286,22): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  OOPPractice.cpp
   Generating Code...
   DataStructures.vcxproj -> C:\Users\Chase\source\repos\DataStructures\DataStructures\Debug\DataStructures.exe
